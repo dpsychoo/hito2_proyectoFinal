@@ -97,7 +97,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col className="text-center py-3">
-              <p>Mi MarketPlace</p>
+              <p>MARKETFY</p>
             </Col>
           </Row>
         </Container>
