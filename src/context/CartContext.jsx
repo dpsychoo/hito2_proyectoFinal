@@ -17,12 +17,12 @@ export const CartProvider = ({ children }) => {
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
       if (existingProduct) {
-        toast.info(`+1 ${product.title} agregado al carrito`);
+        toast.info(`+1 ${product.title} agregado al carrito ✅`);
         return prevCart.map((item) =>
           item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
         );
       }
-      toast.success(`${product.title} añadido al carrito`);
+      toast.success(`${product.title} añadido al carrito 🛒`);
       return [...prevCart, { ...product, quantity: 1 }];
     });
   };
@@ -30,7 +30,7 @@ export const CartProvider = ({ children }) => {
   const removeFromCart = (productId) => {
     const product = cart.find((item) => item.id === productId);
     if (product) {
-      toast.warn(`${product.title} eliminado del carrito`);
+      toast.warn(`${product.title} eliminado del carrito ❌`);
     }
     setCart((prevCart) => prevCart.filter((item) => item.id !== productId));
   };
@@ -38,7 +38,7 @@ export const CartProvider = ({ children }) => {
   const clearCart = () => {
     if (window.confirm("¿Estás seguro de que deseas vaciar el carrito?")) {
       setCart([]);
-      toast.error("Carrito vaciado");
+      toast.error("Carrito vaciado 🗑️");
     }
   };
 

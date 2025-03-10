@@ -15,6 +15,8 @@ import Producto from "./pages/Producto";
 import Navbar from "./components/Navbar";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./index.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; 
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
@@ -23,6 +25,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
         <ProductProvider>
           <Router>
             <Navbar />
+            <ToastContainer position="top-right" autoClose={3000} /> {}
             <Routes>
               <Route path="/" element={<App />}>
                 <Route index element={<Home />} />
@@ -31,7 +34,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
                 <Route path="login" element={<Login />} />
                 <Route path="carrito" element={<Carrito />} />
                 <Route path="perfil" element={<Perfil />} />
-                <Route path="producto/:id" element={<Producto />} /> {}
+                <Route path="producto/:id" element={<Producto />} />
               </Route>
             </Routes>
           </Router>
