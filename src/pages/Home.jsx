@@ -2,24 +2,25 @@ import React, { useContext, useState } from "react";
 import { Container, Row, Col, Button, Carousel, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../context/ProductContext";
-import ProductCard from "../components/ProductCard";
+import { CartContext } from "../context/CartContext";
 
 const Home = () => {
   const navigate = useNavigate();
   const { products } = useContext(ProductContext);
+  const { addToCart } = useContext(CartContext);
   const [activeIndex, setActiveIndex] = useState(0);
 
   const categories = [
     { name: "Más Productos", path: "Todos" },
     { name: "Audífonos", path: "Audífonos" },
     { name: "Consolas", path: "Consolas" },
-    { name: "Smartwatches", path: "Smartwatches" },
+    { name: "Smartwatch", path: "Smartwatch" },
     { name: "Tablets", path: "Tablets" }
   ];
 
   return (
     <Container fluid className="app-container">
-      { }
+      {}
       <Row className="home-content">
         <Col md={6} className="carousel-section d-flex justify-content-center align-items-center">
           <Carousel
@@ -27,39 +28,29 @@ const Home = () => {
             activeIndex={activeIndex}
             onSelect={(selectedIndex) => setActiveIndex(selectedIndex)}
           >
-            {products.slice(0, 3).map((product, index) => (
+            {products.map((product, index) => (
               <Carousel.Item key={index}>
                 <div className="carousel-image-container">
-                  <img 
-                    className="carousel-image" 
-                    src={product.image} 
-                    alt={product.title}
-                    onError={(e) => e.target.src = "/img/img_noDisp.png"}
-                  />
+                  <img className="carousel-image" src={product.image} alt={product.title} />
                 </div>
               </Carousel.Item>
             ))}
           </Carousel>
         </Col>
 
-        { }
         <Col md={6} className="info-section d-flex justify-content-center align-items-center">
-          {products.length > 0 && products[activeIndex] ? (
-            <div className="product-info-container">
-              <h1 className="product-title">{products[activeIndex].title}</h1>
-              <p className="product-description">{products[activeIndex].description}</p>
-              <h2 className="product-price">${products[activeIndex].price.toLocaleString()}</h2>
-              <Button variant="primary" className="product-button" onClick={() => navigate('/ofertas')}>
-                Ver Más
-              </Button>
-            </div>
-          ) : (
-            <p>Cargando productos...</p>
-          )}
+          <div className="product-info-container">
+            <h1 className="product-title">{products[activeIndex]?.title}</h1>
+            <p className="product-description">{products[activeIndex]?.description}</p>
+            <h2 className="product-price">${products[activeIndex]?.price.toLocaleString()}</h2>
+            <Button variant="primary" className="product-button" onClick={() => navigate('/ofertas')}>
+              Ver Más
+            </Button>
+          </div>
         </Col>
       </Row>
 
-      {/* S. CAT */}
+      {}
       <Container fluid className="category-section mt-4">
         <Row>
           <Col>
@@ -81,13 +72,19 @@ const Home = () => {
         <Row>
           <Col>
             <h2 className="hot-sale-title text-center">PRODUCTOS HOT SALE</h2>
-            <Row className="justify-content-center">
-              {products.slice(0, 3).map((product) => (
-                <Col key={product.id} md={4} className="mb-4">
-                  <ProductCard product={product} />
-                </Col>
+            <div className="hot-sale-container d-flex justify-content-center">
+              {products.slice(0, 3).map((product, index) => (
+                <div key={index} className="hot-sale-card text-center">
+                  <img className="hot-sale-image" src={product.image} alt={product.title} />
+                  <h3 className="hot-sale-product-title">{product.title}</h3>
+                  <p className="hot-sale-price">${product.price.toLocaleString()}</p>
+                  <div className="d-flex justify-content-around">
+                    <Button variant="primary" onClick={() => addToCart(product)}>Añadir al Carrito</Button>
+                    <Button variant="secondary" onClick={() => navigate(`/producto/${product.id}`)}>Ver Detalle</Button>
+                  </div>
+                </div>
               ))}
-            </Row>
+            </div>
           </Col>
         </Row>
       </Container>
