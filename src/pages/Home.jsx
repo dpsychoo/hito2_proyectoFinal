@@ -3,6 +3,7 @@ import { Container, Row, Col, Button, Carousel, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../context/ProductContext";
 import { CartContext } from "../context/CartContext";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -94,7 +95,7 @@ const Home = () => {
         <Container>
           <Row>
             <Col className="text-center py-3">
-              <p>MARKETFY</p>
+               <Footer />
             </Col>
           </Row>
         </Container>
