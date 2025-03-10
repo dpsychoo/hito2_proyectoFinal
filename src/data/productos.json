@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "title": "Notebook IdeaPad Slim 3 Gen 8",
+      "description": "Rendimiento potente con procesador Core i5, pantalla FHD de 15.6” y almacenamiento SSD ultrarrápido.",
+      "price": 469990,
+      "category": "Laptops",
+      "image": "https://catalogo.movistar.cl/media/catalog/product/cache/59f9333d8451bc946b99b13dadf94dd3/t/a/tagcllei38i5gr_370_other_1_1.webp"
+    },
+    {
+      "id": 2,
+      "title": "Galaxy Buds3 Gray",
+      "description": "Auriculares inalámbricos con sonido envolvente y cancelación de ruido activa.",
+      "price": 109990,
+      "category": "Audífonos",
+      "image": "https://catalogo.movistar.cl/media/catalog/product/cache/59f9333d8451bc946b99b13dadf94dd3/t/a/tagclsabuds3gr_370_other_7_gr3ap6vglgcvbhxo.webp"
+    },
+    {
+      "id": 3,
+      "title": "PS5 Digital Slim + Returnal y Ratchet & Clank",
+      "description": "Nueva PlayStation 5 Digital Slim con dos juegos incluidos para máxima diversión.",
+      "price": 599990,
+      "category": "Consolas",
+      "image": "https://catalogo.movistar.cl/media/catalog/product/cache/59f9333d8451bc946b99b13dadf94dd3/t/a/tagclsnc5sdj00_370_other_1_iuprdbigetjccwis.webp"
+    },
+    {
+      "id": 4,
+      "title": "iPad Pro 13\" Wi-Fi 512GB Negro",
+      "description": "Potente iPad Pro con chip M2, pantalla de 13 pulgadas y 512GB de almacenamiento.",
+      "price": 1799990,
+      "category": "Tablets",
+      "image": "https://catalogo.movistar.cl/media/catalog/product/cache/59f9333d8451bc946b99b13dadf94dd3/t/a/tagclapp3w4ene_370_other_2_mxy1ibt1cuh6ubcq.webp"
+    },
+    {
+      "id": 5,
+      "title": "Watch Series 10 (GPS) Negro Azabache 46mm",
+      "description": "Apple Watch Series 10 con pantalla más grande y mejores funciones de salud.",
+      "price": 504990,
+      "category": "Smartwatches",
+      "image": "https://catalogo.movistar.cl/media/catalog/product/cache/59f9333d8451bc946b99b13dadf94dd3/t/a/tagclaps10glne_370_other_2_1_vtcus2qwbngrlao9.webp"
+    },
+    {
+      "id": 6,
+      "title": "Switch Oled + Super Mario Bros Wonder",
+      "description": "Nintendo Switch OLED con el nuevo juego Super Mario Bros Wonder incluido.",
+      "price": 409990,
+      "category": "Consolas",
+      "image": "https://catalogo.movistar.cl/media/catalog/product/cache/59f9333d8451bc946b99b13dadf94dd3/t/a/tagclniswomw00_370_other_1.webp"
+    },
+    {
+      "id": 7,
+      "title": "Galaxy Watch7 BT 44mm Verde",
+      "description": "Nuevo Galaxy Watch7 con pantalla más grande y más funciones de salud.",
+      "price": 299990,
+      "category": "Smartwatches",
+      "image": "https://catalogo.movistar.cl/media/catalog/product/cache/59f9333d8451bc946b99b13dadf94dd3/t/a/tagclsawa7btve_370_other_1_cfca1ckjssx3yh8f.webp"
+    },
+    {
+      "id": 8,
+      "title": "Tablet Galaxy S6 Lite 10.4\" Wi-Fi 64GB + lápiz + funda",
+      "description": "Tablet Samsung Galaxy S6 Lite con lápiz y funda incluidos, ideal para trabajar y estudiar.",
+      "price": 226990,
+      "category": "Tablets",
+      "image": "https://catalogo.movistar.cl/media/catalog/product/cache/59f9333d8451bc946b99b13dadf94dd3/t/a/tagclsats6lwgr_370_other_1.webp"
+    }
+  ]
+  
