@@ -7,6 +7,8 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  const ADMIN_EMAIL = "admin@marketfy.com"; // Definir el correo del administrador
+
   useEffect(() => {
     try {
       const savedUser = localStorage.getItem("user");
@@ -29,9 +31,13 @@ export const AuthProvider = ({ children }) => {
 
   const login = (userData) => {
     if (userData && userData.email) {
-      setUser(userData);
-      localStorage.setItem("user", JSON.stringify(userData));
-      toast.success(`Bienvenido, ${userData.name}`);
+      const isAdmin = userData.email === ADMIN_EMAIL;
+      const userWithRole = { ...userData, role: isAdmin ? "admin" : "user" };
+
+      setUser(userWithRole);
+      localStorage.setItem("user", JSON.stringify(userWithRole));
+      
+      toast.success(`Bienvenido, ${userData.name}${isAdmin ? " (Admin)" : ""}`);
     } else {
       console.error("Error: los datos de usuario son inválidos.");
     }

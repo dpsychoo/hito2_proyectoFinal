@@ -1,15 +1,22 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Container, Row, Col, Button, Carousel, Nav } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { ProductContext } from "../context/ProductContext";
 import { CartContext } from "../context/CartContext";
 import Footer from "../components/Footer";
+import "./HotSale.css";
 
 const Home = () => {
   const navigate = useNavigate();
   const { products } = useContext(ProductContext);
   const { addToCart } = useContext(CartContext);
   const [activeIndex, setActiveIndex] = useState(0);
+  const [hotSaleProducts, setHotSaleProducts] = useState([]);
+
+  useEffect(() => {
+    const shuffledProducts = [...products].sort(() => Math.random() - 0.5);
+    setHotSaleProducts(shuffledProducts.slice(0, 3)); // Muestra 3 productos aleatorios
+  }, [products]);
 
   const categories = [
     { name: "Más Productos", path: "Todos" },
@@ -21,7 +28,7 @@ const Home = () => {
 
   return (
     <Container fluid className="app-container">
-      {}
+      {/* Sección del Carrusel */}
       <Row className="home-content">
         <Col md={6} className="carousel-section d-flex justify-content-center align-items-center">
           <Carousel
@@ -51,7 +58,7 @@ const Home = () => {
         </Col>
       </Row>
 
-      {}
+      {/* Categorías */}
       <Container fluid className="category-section mt-4">
         <Row>
           <Col>
@@ -68,18 +75,18 @@ const Home = () => {
         </Row>
       </Container>
 
-      {}
+      {/* Sección HOT SALE con Productos Aleatorios */}
       <Container fluid className="hot-sale-section mt-5">
         <Row>
           <Col>
-            <h2 className="hot-sale-title text-center">PRODUCTOS HOT SALE</h2>
-            <div className="hot-sale-container d-flex justify-content-center">
-              {products.slice(0, 3).map((product, index) => (
+            <h2 className="hotsale-title text-center">🔥 PRODUCTOS HOT SALE 🔥</h2>
+            <div className="hot-sale-container d-flex justify-content-center flex-wrap">
+              {hotSaleProducts.map((product, index) => (
                 <div key={index} className="hot-sale-card text-center">
                   <img className="hot-sale-image" src={product.image} alt={product.title} />
                   <h3 className="hot-sale-product-title">{product.title}</h3>
                   <p className="hot-sale-price">${product.price.toLocaleString()}</p>
-                  <div className="d-flex justify-content-around">
+                  <div className="hot-sale-buttons d-flex justify-content-around">
                     <Button variant="primary" onClick={() => addToCart(product)}>Añadir al Carrito</Button>
                     <Button variant="secondary" onClick={() => navigate(`/producto/${product.id}`)}>Ver Detalle</Button>
                   </div>
@@ -90,12 +97,12 @@ const Home = () => {
         </Row>
       </Container>
 
-      {}
+      {/* Footer */}
       <footer className="footer mt-auto">
         <Container>
           <Row>
             <Col className="text-center py-3">
-               <Footer />
+              <Footer />
             </Col>
           </Row>
         </Container>
@@ -105,3 +112,4 @@ const Home = () => {
 };
 
 export default Home;
+

@@ -1,0 +1,85 @@
+.hot-sale-container {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #f8f9fa;
+  }
+  
+  .hot-sale-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .hot-sale-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .hot-sale-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 250px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .hot-sale-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .hot-sale-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .hot-sale-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 10px 0;
+  }
+  
+  .hot-sale-price {
+    font-size: 1.5rem;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  .hot-sale-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .hot-sale-buttons button {
+    flex: 1;
+    margin: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+  
+  .hot-sale-buttons .add-to-cart {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .hot-sale-buttons .add-to-cart:hover {
+    background-color: #0056b3;
+  }
+  
+  .hot-sale-buttons .view-details {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .hot-sale-buttons .view-details:hover {
+    background-color: #545b62;
+  }
+  

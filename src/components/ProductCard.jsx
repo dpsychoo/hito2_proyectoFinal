@@ -3,7 +3,7 @@ import { Card, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const ProductCard = ({ product, onAddToCart }) => {
+const ProductCard = ({ product, onAddToCart, hideAddToCart = false }) => {
   const navigate = useNavigate();
 
   return (
@@ -19,15 +19,17 @@ const ProductCard = ({ product, onAddToCart }) => {
         <Card.Text>{product.description}</Card.Text>
         <h4 className="text-primary">${product.price}</h4>
         <div className="d-flex justify-content-between">
-          <Button 
-            variant="primary" 
-            onClick={() => {
-              onAddToCart(product);
-              toast.success(`Añadido al carrito: ${product.title}`);
-            }}
-          >
-            Añadir al Carrito
-          </Button>
+          {!hideAddToCart && (
+            <Button 
+              variant="primary" 
+              onClick={() => {
+                onAddToCart(product);
+                toast.success(`Añadido al carrito: ${product.title}`);
+              }}
+            >
+              Añadir al Carrito
+            </Button>
+          )}
           <Button variant="secondary" onClick={() => navigate(`/producto/${product.id}`)}>
             Ver Detalle
           </Button>
@@ -37,4 +39,4 @@ const ProductCard = ({ product, onAddToCart }) => {
   );
 };
 
-export default ProductCard;
+export default ProductCard ;

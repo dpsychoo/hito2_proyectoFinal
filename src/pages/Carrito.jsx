@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { CartContext } from "../context/CartContext";
-import { Container, Row, Col, Button, Table, Form, Modal, Alert, Card } from "react-bootstrap";
+import { Container, Button, Table, Form, Modal, Alert, Card } from "react-bootstrap";
 import ProductCard from "../components/ProductCard";
 
 const Carrito = () => {
@@ -10,6 +10,18 @@ const Carrito = () => {
   const [paymentStatus, setPaymentStatus] = useState("");
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
+
+  const handleIncrease = (item) => {
+    addToCart({ ...item, quantity: 1 }); // Aumentar en 1
+  };
+
+  const handleDecrease = (item) => {
+    if (item.quantity > 1) {
+      removeFromCart(item.id, 1); // Resta solo 1 unidad
+    } else {
+      removeFromCart(item.id); // Elimina si la cantidad llega a 1
+    }
+  };
 
   const handlePayment = () => {
     if (!paymentMethod) return;
@@ -53,20 +65,24 @@ const Carrito = () => {
               {cart.map((item) => (
                 <tr key={item.id}>
                   <td>
-                    <ProductCard product={item} onAddToCart={null} />
+                    <ProductCard product={item} hideAddToCart={true} />
                   </td>
                   <td>
-                    <Form.Control
-                      type="number"
-                      min="1"
-                      value={item.quantity}
-                      onChange={(e) => {
-                        const newQuantity = parseInt(e.target.value);
-                        if (newQuantity > 0) {
-                          addToCart({ ...item, quantity: newQuantity - item.quantity });
-                        }
-                      }}
-                    />
+                    <div className="d-flex align-items-center">
+                      <Button variant="secondary" size="sm" onClick={() => handleDecrease(item)}>
+                        -
+                      </Button>
+                      <Form.Control
+                        type="text"
+                        value={item.quantity}
+                        className="text-center mx-2"
+                        readOnly
+                        style={{ width: "50px" }}
+                      />
+                      <Button variant="secondary" size="sm" onClick={() => handleIncrease(item)}>
+                        +
+                      </Button>
+                    </div>
                   </td>
                   <td>${item.price.toLocaleString()}</td>
                   <td>${(item.price * item.quantity).toLocaleString()}</td>
@@ -80,7 +96,6 @@ const Carrito = () => {
             </tbody>
           </Table>
 
-          {}
           <Card className="mt-4 mx-auto text-center shadow-lg" style={{ maxWidth: "400px", borderRadius: "10px" }}>
             <Card.Body>
               <h4 className="fw-bold">Total a pagar</h4>
@@ -99,7 +114,6 @@ const Carrito = () => {
         </>
       )}
 
-      {}
       <Modal show={showModal} onHide={() => setShowModal(false)} centered>
         <Modal.Header closeButton>
           <Modal.Title>Selecciona un Método de Pago</Modal.Title>
