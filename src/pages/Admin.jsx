@@ -7,12 +7,12 @@ const Admin = () => {
   const [products, setProducts] = useState([]);
   const [newProduct, setNewProduct] = useState({ name: "", price: "", image: "" });
 
-  // Redirigir si el usuario no es administrador
+ 
   if (!user || user.email !== "admin@marketfy.com") {
     return <Navigate to="/" />;
   }
 
-  // Manejar cambios en el formulario
+ 
   const handleChange = (e) => {
     setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
   };
@@ -25,7 +25,7 @@ const Admin = () => {
       return;
     }
     setProducts([...products, { ...newProduct, id: Date.now() }]);
-    setNewProduct({ name: "", price: "", image: "" }); // Limpiar formulario
+    setNewProduct({ name: "", price: "", image: "" }); 
   };
 
   // Eliminar un producto
@@ -38,7 +38,7 @@ const Admin = () => {
       <h1>Panel de Administración</h1>
       <p>Bienvenido, {user.name}. Aquí puedes gestionar los productos y pedidos.</p>
 
-      {/* Formulario para agregar productos */}
+    
       <form onSubmit={addProduct} className="mb-4">
         <input
           type="text"
@@ -67,7 +67,7 @@ const Admin = () => {
         <button type="submit" className="btn btn-success">Añadir Producto</button>
       </form>
 
-      {/* Lista de productos */}
+     
       <h2>Lista de Productos</h2>
       <ul className="list-group">
         {products.length > 0 ? (

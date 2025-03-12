@@ -15,7 +15,7 @@ const Home = () => {
 
   useEffect(() => {
     const shuffledProducts = [...products].sort(() => Math.random() - 0.5);
-    setHotSaleProducts(shuffledProducts.slice(0, 3)); // Muestra 3 productos aleatorios
+    setHotSaleProducts(shuffledProducts.slice(0, 3)); 
   }, [products]);
 
   const categories = [
@@ -58,7 +58,7 @@ const Home = () => {
         </Col>
       </Row>
 
-      {/* Categorías */}
+      
       <Container fluid className="category-section mt-4">
         <Row>
           <Col>
@@ -75,7 +75,6 @@ const Home = () => {
         </Row>
       </Container>
 
-      {/* Sección HOT SALE con Productos Aleatorios */}
       <Container fluid className="hot-sale-section mt-5">
         <Row>
           <Col>
