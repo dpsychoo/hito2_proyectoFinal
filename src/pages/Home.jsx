@@ -28,7 +28,7 @@ const Home = () => {
 
   return (
     <Container fluid className="app-container">
-      {/* Sección del Carrusel */}
+    
       <Row className="home-content">
         <Col md={6} className="carousel-section d-flex justify-content-center align-items-center">
           <Carousel
@@ -96,7 +96,7 @@ const Home = () => {
         </Row>
       </Container>
 
-      {/* Footer */}
+      
       <footer className="footer mt-auto">
         <Container>
           <Row>
