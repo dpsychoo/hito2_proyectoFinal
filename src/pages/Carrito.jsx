@@ -12,14 +12,14 @@ const Carrito = () => {
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
 
   const handleIncrease = (item) => {
-    addToCart({ ...item, quantity: 1 }); // Aumentar en 1
+    addToCart({ ...item, quantity: 1 }); 
   };
 
   const handleDecrease = (item) => {
     if (item.quantity > 1) {
-      removeFromCart(item.id, 1); // Resta solo 1 unidad
+      removeFromCart(item.id, 1); 
     } else {
-      removeFromCart(item.id); // Elimina si la cantidad llega a 1
+      removeFromCart(item.id); 
     }
   };
 
