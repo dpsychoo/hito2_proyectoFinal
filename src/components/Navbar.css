@@ -75,7 +75,7 @@
   transform: rotate(-10deg);
 }
 
-/* 📱 Responsive */
+
 @media (max-width: 991px) {
   .navbar-collapse {
     background: #1f1f1f;
