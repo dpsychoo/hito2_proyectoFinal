@@ -17,7 +17,7 @@ const Admin = () => {
     setNewProduct({ ...newProduct, [e.target.name]: e.target.value });
   };
 
-  // Agregar un producto
+
   const addProduct = (e) => {
     e.preventDefault();
     if (!newProduct.name || !newProduct.price || !newProduct.image) {
@@ -28,7 +28,7 @@ const Admin = () => {
     setNewProduct({ name: "", price: "", image: "" }); 
   };
 
-  // Eliminar un producto
+
   const deleteProduct = (id) => {
     setProducts(products.filter((product) => product.id !== id));
   };
