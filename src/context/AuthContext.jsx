@@ -7,7 +7,7 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const ADMIN_EMAIL = "admin@marketfy.com"; // Definir el correo del administrador
+  const ADMIN_EMAIL = "admin@marketfy.com"; 
 
   useEffect(() => {
     try {
