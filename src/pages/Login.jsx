@@ -13,11 +13,11 @@ const Login = () => {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // Rec. User
+   
     const savedUser = JSON.parse(localStorage.getItem("user"));
 
     if (savedUser && savedUser.email === email) {
-      login(savedUser); // Login con perfil
+      login(savedUser); 
       navigate("/perfil");
     } else {
       setError("Correo electrónico o contraseña incorrectos.");
